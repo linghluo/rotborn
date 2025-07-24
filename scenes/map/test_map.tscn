@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://blw1h1basfa2r"]
+
+[ext_resource type="PackedScene" uid="uid://b7xt7ycybiy4o" path="res://scenes/players/main_player.tscn" id="1_dajpa"]
+[ext_resource type="PackedScene" uid="uid://bbtff2001737g" path="res://scenes/camera/camera_main.tscn" id="1_k8tbh"]
+[ext_resource type="PackedScene" uid="uid://csdgytx2o1b6j" path="res://scenes/camera/camera_area_2d.tscn" id="3_hsulm"]
+
+[sub_resource type="Gradient" id="Gradient_r1p3x"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qyrbn"]
+gradient = SubResource("Gradient_r1p3x")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.5, 324.5)
+scale = Vector2(4.49609, 649)
+texture = SubResource("GradientTexture1D_qyrbn")
+
+[node name="player" parent="." instance=ExtResource("1_dajpa")]
+position = Vector2(534, 321)
+
+[node name="camera_Area2D" parent="." instance=ExtResource("3_hsulm")]
+visible = false
+zoom = Vector2(3, 3)
+
+[node name="Camera2D" parent="." instance=ExtResource("1_k8tbh")]
+visible = false
+player_path = NodePath("../player")
